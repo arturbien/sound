@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 
 class ProgressBar extends Component {
-  constructor() {
-    super();
-    this.state = {value: ''};
-  }
 
-  componentDidMount() {
-    this.props.player.play();
-    console.log(this.props.song);
-  }
-  componentWillUnmount() {
-    this.props.player.kill();
+  handleOnClick = (e) => {
+    // var x = e.pageX - this.offsetLeft; 
+    let pos = (e.clientX-e.target.offsetLeft)/e.target.offsetWidth;
+    this.props.seekTo(pos);
   }
   render() {
-    let progress = Math.floor(this.props.player.currentTime/this.props.player.duration);
     return (
-        <div className='player'>
-          <div className='player-progress-bar' style={{width: this.props.progress+'%'}}></div>
+      <div className='ProgressBar'>
+        <div className='time-line' onClick={(e)=>{this.handleOnClick(e)}}>
+          <div className='time-marker' style={{left: this.props.progress+'%'}}></div>
+          <div className='time'>{this.props.timeLeft}</div>
         </div>  
-
+      </div>  
     );
   }
 }

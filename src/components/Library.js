@@ -18,9 +18,9 @@ class Library extends Component {
   		})
   	if (songs) {
   		return (
-	      <div className='Library'>
+	      <section className='Library'>
 	      	{songs}
-      	</div>
+      	</section>
     	);
   	} else {
   		return <h1>LOADING..</h1>;

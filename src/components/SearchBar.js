@@ -15,11 +15,11 @@ class SearchBar extends Component {
   
   render() {
     return (
-    	<div className='SearchBar'>
+    	<header className='SearchBar'>
 	      <form>
 	        <input id='search-input' type="text" value={this.state.value} onChange={this.handleChange} disabled={this.props.disableSearch}/>
 	      </form>
-      </div>
+      </header>
     );
   }
 }

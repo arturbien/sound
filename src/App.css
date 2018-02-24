@@ -157,29 +157,87 @@ h3 {
 	filter:url('#blur');
 }
 
-.player-wrapper {
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+.player {
+    z-index: 1000;
+    padding: 1em 0 2em 0;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background: #151515;
-	
+	background: linear-gradient(transparent, #151515, #111, #000)
 }
+/*background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;*/
+
 
 .info {
-	margin-left: 15%;
 	color: #ccc;
-	padding: 15px 0;
+	padding:  0 0 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+}
+.song-cover {
+    flex:2;
+    padding: 0;
+}
+.song-cover img {
+    vertical-align: middle; 
+}
+.song-description {
+    flex: 8;
+}
+.ProgressBar {
+    width: 100%;
+}
+.time {
+    position: absolute;
+    text-align: right;
+    color: #ccc;
+    right: 0;
+}
+.time-line {
+    width: 100%;
+    background: #444;
+    height: 2px;
+    border-top: 5px solid  #151515;
+    border-bottom: 5px solid  #151515;
+    margin: 20px 0;
+    cursor: pointer;
+    position: relative;
 }
 
-.player {
+.time-marker {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: orange;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%,-50%);
 
+    -webkit-box-shadow: 0px 0px 51px 19px rgba(255,119,0,1);
+    -moz-box-shadow: 0px 0px 51px 19px rgba(255,119,0,1);
+    box-shadow: 0px 0px 51px 19px rgba(255,119,0,1);
 }
-.player-progress-bar {
-	height: 8px;
-	background: #333;
-	margin: 10px 0;
+.player-buttons {
+    width: 250px;
+    display: flex;
 }
 
+.player-buttons button{
+    flex: 1;
+    font-size: 1.2em;
+    color: #444;
+    background: none;
+    cursor: pointer;
+}
 
 @-webkit-keyframes rotation {
 		from {
@@ -332,5 +390,41 @@ h3 {
         -o-filter: blur(0px);
         -ms-filter: blur(0px);
         filter: blur(0px);
+    }
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
     }
 }
