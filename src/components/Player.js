@@ -8,8 +8,12 @@ class Player extends Component {
   }
 
   componentDidMount() {
+    this.props.player.on('finish', () => {
+      this.props.setSong(undefined);
+    });
     this.props.player.play();
     this.interval = setInterval(this.timer, 500);
+
   }
   componentWillUnmount() {
     clearInterval(this.interval);

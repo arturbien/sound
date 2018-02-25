@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
 
 var bg = ['linear-gradient(45deg,#30496B,#30B8D2)',
           'linear-gradient(45deg,#F32F8E,#B236D0)',
@@ -65,7 +64,7 @@ class Song extends Component {
     event.preventDefault();
     if (this.props.playing === undefined) {
       this.props.setSong(this.props.songId);
-    } else if (this.props.playing === this.props.songId) {
+    } else  {
       this.props.setSong(undefined);
     }       
   }
@@ -79,7 +78,7 @@ class Song extends Component {
   render() {
     let blur = ((this.props.playing !== this.props.songId) && (this.props.playing !== undefined)) ? 'blur(6px)' : 'none';
     // let opacity = ((this.props.playing !== this.props.songId) && (this.props.playing !== undefined)) ? '0' : '1';
-    let playerLogo = this.props.playing === this.props.songId ? 'fa fa-pause-circle-o fa-2x icons' : 'fa fa-play-circle-o fa-2x icons';
+    let playerLogo = this.props.playing === this.props.songId ? 'fa fa-times-circle-o fa-2x icons' : 'fa fa-play-circle-o fa-2x icons';
     return (
       <div
         ref={songWrapper => this.song = songWrapper} 
@@ -91,11 +90,7 @@ class Song extends Component {
         <div className='card-content'>
           <h3>{this.props.artist}</h3>
           { (this.props.playing === undefined || this.props.playing === this.props.songId) &&
-          <FontAwesome
-            className={playerLogo+' icons'}
-            name=''
-            size='2x'
-          />
+          <i className={playerLogo} />
           }
         </div>
         <img

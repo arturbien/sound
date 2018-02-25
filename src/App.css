@@ -57,10 +57,6 @@ body {
 	background-size: cover;
 	background-position: center; 
 
-	/*-webkit-box-shadow: 0px 0px 71px 9px rgba(0,0,0,0.75),inset 0px 0px 71px 9px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 71px 9px rgba(0,0,0,0.75),inset 0px 0px 71px 9px rgba(0,0,0,0.75);
-	box-shadow: inset 0px 0px 71px 9px rgba(0,0,0,0.75),0px 0px 71px 9px rgba(0,0,0,0.75);*/
-
 	transform-style: preserve-3d;
 	-webkit-backface-visibility: hidden;
   	cursor: pointer;
@@ -167,7 +163,7 @@ h3 {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background: linear-gradient(transparent, #151515, #111, #000)
+	background: linear-gradient(rgba(17,17,17, 0),rgba(8,8,8, 0.4),rgba(0,0,0, 0.7),rgba(0,0,0, 1));
 }
 /*background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
     background-size: 400% 400%;
@@ -199,18 +195,27 @@ h3 {
 .time {
     position: absolute;
     text-align: right;
-    color: #ccc;
+    color: rgba(255,119,0,0.8);
     right: 0;
+    cursor: default;
 }
 .time-line {
     width: 100%;
-    background: #444;
-    height: 2px;
-    border-top: 5px solid  #151515;
-    border-bottom: 5px solid  #151515;
+    height: 1px;
+    border-top: 5px solid  transparent;
+    border-bottom: 5px solid transparent;
     margin: 20px 0;
     cursor: pointer;
     position: relative;
+}
+
+.time-line:before {
+  content: "";
+  border-top: solid 1px #ccc;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .time-marker {
@@ -237,6 +242,9 @@ h3 {
     color: #444;
     background: none;
     cursor: pointer;
+    border: 1px solid #444;
+    margin-right: 4px;
+    outline-color: rgba(255,119,0,0.8);
 }
 
 @-webkit-keyframes rotation {
