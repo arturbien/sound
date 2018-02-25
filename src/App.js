@@ -19,7 +19,7 @@ class App extends Component {
     SC.initialize({
       client_id: 'e2a6681bccff23130855618e14c481af'
     });
-    let initialQuery = {  q: '*',limit: '40',favoritings_count:{from: '10000'}}
+    let initialQuery = {  q: 'troyboi',limit: '40',favoritings_count:{from: '10000'}}
     this.getTracks(initialQuery);
   }
   // componentWillUpdate() {
@@ -64,6 +64,7 @@ class App extends Component {
   render() {
     let disableSearch = this.state.playing !== undefined ? true:false;
     let songObj = this.state.library.filter(obj => {return obj.id === this.state.playing})[0];
+    console.log('songobj', songObj);
     return (
       <div className='App'>
         <SearchBar search={this.search} disableSearch={disableSearch}/>

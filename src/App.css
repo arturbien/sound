@@ -8,6 +8,9 @@ body {
 	background: #222;
 }
 
+a {
+    text-decoration: none;
+}
 .SearchBar {
 	width: 100%;
 	background: #353535;
@@ -157,13 +160,14 @@ h3 {
     width: 70%;
     margin: 0 auto;
 }
-.player {
+.Player {
     z-index: 1000;
     padding: 1em 0 2em 0;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	background: linear-gradient(rgba(17,17,17, 0),rgba(8,8,8, 0.4),rgba(0,0,0, 0.7),rgba(0,0,0, 1));
+    transition: 2s all;
 }
 /*background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
     background-size: 400% 400%;
@@ -172,7 +176,7 @@ h3 {
     animation: Gradient 15s ease infinite;*/
 
 
-.info {
+.song-info {
 	color: #ccc;
 	padding:  0 0 10px 0;
     display: flex;
@@ -186,8 +190,41 @@ h3 {
 .song-cover img {
     vertical-align: middle; 
 }
-.song-description {
+.song-details {
     flex: 8;
+
+}
+.song-title a, .song-artist a {
+    color: #ddd;
+    background: rgba(0,0,0,0.5);
+    padding: 0 5px;
+}
+
+.song-title, .song-artist {
+    text-shadow:0px 0px 10px #000000, 0px 0px 10px #000000, 0px 0px 10px #000000, 2px 2px 20px #000000, 2px 2px 2px #333333;
+
+    margin-bottom: 5px;
+}
+.song-stats {
+    
+}
+.stat {
+    display: inline-block;
+    font-size: 0.8em;
+    background: rgba(0,0,0,0.5);
+    padding: 0 5px;
+
+}
+.stat i {
+    margin-right: 10px;
+    color: #ccc;
+}
+.player-controls {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 .ProgressBar {
     width: 100%;
@@ -197,6 +234,7 @@ h3 {
     text-align: right;
     color: rgba(255,119,0,0.8);
     right: 0;
+    bottom: 250%;
     cursor: default;
 }
 .time-line {
@@ -245,6 +283,26 @@ h3 {
     border: 1px solid #444;
     margin-right: 4px;
     outline-color: rgba(255,119,0,0.8);
+}
+
+input[type="range"]{
+  -webkit-appearance:none;
+  width:250px;
+  height:1px;
+  background: #444;
+  background-position:center;
+  background-repeat:no-repeat;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:10px;
+  height:20px;
+  position:relative;
+  border: 2px solid #444;
+  z-index:3;
+  cursor: pointer;
 }
 
 @-webkit-keyframes rotation {
