@@ -4,7 +4,7 @@ import Library from './components/Library';
 import SearchBar from './components/SearchBar';
 import Player from './components/Player';
 import SC from 'soundcloud';
-
+import _ from 'lodash';
 //  API KEYS:
 // 340f063c670272fac27cfa67bffcafc4
 // e2a6681bccff23130855618e14c481af
@@ -64,10 +64,11 @@ class App extends Component {
   render() {
     let disableSearch = this.state.playing !== undefined ? true:false;
     let songObj = this.state.library.filter(obj => {return obj.id === this.state.playing})[0];
+    const search = _.debounce((this.search), 300);
     console.log('songobj', songObj);
     return (
       <div className='App'>
-        <SearchBar search={this.search} disableSearch={disableSearch}/>
+        <SearchBar search={search} disableSearch={disableSearch}/>
         <Library library = {this.state.library} playing={this.state.playing} setSong={this.setSong} />
         {this.state.playing &&
           <Player song={songObj} player={this.state.player} setSong={this.setSong} library={this.state.library}/>

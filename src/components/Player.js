@@ -57,6 +57,7 @@ class Player extends Component {
                 <div className='stat'><i className='fa fa-comment'></i>{this.props.song.comment_count}</div>
               </div>
             </div>
+            <a id='player-soundcloud-logo' href='https://soundcloud.com/' target='_blank'><img src={require('../img/soundcloud-powered.png')} /></a>
           </div>
           <div className='player-controls'>
             <ProgressBar progress={progress} seekTo={this.seekTo} timeLeft={timeLeft}/>

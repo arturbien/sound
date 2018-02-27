@@ -15,12 +15,20 @@ a {
 	width: 100%;
 	background: #353535;
 	padding: 15px 0;
+    position: relative;
 }
 
 .SearchBar form {
 	width: 500px;
   	display: block;
   	margin: 0 auto;
+}
+.SearchBar img {
+    position: absolute;
+    right: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: invert(0.2);
 }
 #search-input {
 	display: inline-block;
@@ -183,12 +191,18 @@ h3 {
     align-items: center;
     font-size: 1.3em;
 }
+#player-soundcloud-logo {
+    align-self: flex-start;
+    background: rgba(0,0,0,0.5);
+    padding: 0 5px;
+
+}
 .song-cover {
     flex:2;
     padding: 0;
 }
 .song-cover img {
-    vertical-align: middle; 
+    vertical-align: middle;
 }
 .song-details {
     flex: 8;
