@@ -57,7 +57,7 @@ class Player extends Component {
                 <div className='stat'><i className='fa fa-comment'></i>{this.props.song.comment_count}</div>
               </div>
             </div>
-            <a id='player-soundcloud-logo' href='https://soundcloud.com/' target='_blank'><img src={require('../img/soundcloud-powered.png')} /></a>
+            <a id='player-soundcloud-logo' href='https://soundcloud.com/' target='_blank'><img src={require('../img/soundcloud-powered.png')} alt='SoundCloud logo'/></a>
           </div>
           <div className='player-controls'>
             <ProgressBar progress={progress} seekTo={this.seekTo} timeLeft={timeLeft}/>
@@ -74,18 +74,10 @@ class Player extends Component {
             </div>
             <input type='range' value={this.state.volume} min='0' max='1' step='0.025' onChange={(e)=>{this.setState({volume: e.target.value})}} />
           </div>
-        </div>  
-	      
-        
+        </div> 
       </section>
     );
   }
 }
 
 export default Player;
-  // <div className='player-progress-bar' style={{width: progress+'%'}}></div>
-  // <img src={require('../img/soundcloud-logo.png')} alt='soundcloud logo'/>
-
-  // let minutesLeft = d.getUTCMinutes().length < 2 ? '0'+d.getUTCMinutes():d.getUTCMinutes();
-  //   let secondsLeft = d.getUTCSeconds().length < 2 ? '0'+d.getUTCSeconds():d.getUTCSeconds();
-  //   let timeLeft = minutesLeft + ':' + secondsLeft;

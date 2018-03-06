@@ -41,12 +41,11 @@ class Song extends Component {
       let target = event.target || event.srcElement;
       let rectObject = target.getBoundingClientRect();
 
-      //100 is half of the thumbnail size
-      let x = event.clientX - rectObject.left-100;
-      let y = (event.clientY - rectObject.top) - document.body.scrollTop-100;
-      
+      let x = Math.floor((event.clientX - (rectObject.left+target.offsetWidth/2))/(target.offsetWidth/2)*100)/100;
+      let y = Math.floor((event.clientY - (rectObject.top - document.body.scrollTop+target.offsetHeight/2))/(target.offsetHeight/2)*100)/100;
+
       target.style.transitionDuration = '0s';
-      target.style.transform = 'scale(1.5, 1.5) rotateY('+(x/4)+'deg) rotateX('+ (-y/4) +'deg) rotateZ('+(-x/12)+'deg)';
+      target.style.transform = 'scale(1.5, 1.5) rotateY('+ x*15 +'deg) rotateX('+ (-y*15) +'deg) rotateZ('+ x*5 +'deg)';
       target.style.zIndex='100';
     }
   }
@@ -88,7 +87,8 @@ class Song extends Component {
         onMouseLeave={(e)=>{this.mouseOut(e)}}
         onClick={(e)=>{this.mouseClick(e)}}>
         <div className='card-content'>
-          <h3>{this.props.artist}</h3>
+          
+          <h3>{this.props.title}</h3>
           { (this.props.playing === undefined || this.props.playing === this.props.songId) &&
           <i className={playerLogo} />
           }

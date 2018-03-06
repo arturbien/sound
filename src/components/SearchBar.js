@@ -19,7 +19,7 @@ class SearchBar extends Component {
 	      <form>
 	        <input id='search-input' type="text" value={this.state.value} onChange={this.handleChange} disabled={this.props.disableSearch}/>
 	      </form>
-	      <img src={require('../img/soundcloud-logo.png')} />
+	      <img src={require('../img/soundcloud-logo.png')} alt='SoundCloud logo' />
       </header>
     );
   }

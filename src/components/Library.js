@@ -20,6 +20,7 @@ class Library extends Component {
   		return (
 	      <section className='Library'>
 	      	{songs}
+          <div className='margin-fix'></div>
       	</section>
     	);
   	} else {

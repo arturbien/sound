@@ -22,12 +22,7 @@ class App extends Component {
     let initialQuery = {  q: 'troyboi',limit: '40',favoritings_count:{from: '10000'}}
     this.getTracks(initialQuery);
   }
-  // componentWillUpdate() {
-  //     console.log(this.state);
-  //     if (this.state.player){
-  //       this.state.player.play();
-  //     }
-  // }
+
   getTracks = (query) => {
     SC.get('/tracks', query).then(tracks => {
       this.setState({ library: tracks });
@@ -65,7 +60,6 @@ class App extends Component {
     let disableSearch = this.state.playing !== undefined ? true:false;
     let songObj = this.state.library.filter(obj => {return obj.id === this.state.playing})[0];
     const search = _.debounce((this.search), 300);
-    console.log('songobj', songObj);
     return (
       <div className='App'>
         <SearchBar search={search} disableSearch={disableSearch}/>
