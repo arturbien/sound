@@ -62,6 +62,7 @@ a {
 .Library {
 	width: 70%;
 	margin: 50px auto;
+    position: relative;
 }
 
 .Song {
@@ -78,6 +79,7 @@ a {
 	background-size: cover;
 	background-position: center; 
 
+    transform-origin: 50% 50%;
 	transform-style: preserve-3d;
 	-webkit-backface-visibility: hidden;
   	cursor: pointer;

@@ -40,12 +40,13 @@ class Song extends Component {
     if (this.props.playing === this.props.songId || this.props.playing === undefined) {
       let target = event.target || event.srcElement;
       let rectObject = target.getBoundingClientRect();
-
-      let x = Math.floor((event.clientX - (rectObject.left+target.offsetWidth/2))/(target.offsetWidth/2)*100)/100;
-      let y = Math.floor((event.clientY - (rectObject.top - document.body.scrollTop+target.offsetHeight/2))/(target.offsetHeight/2)*100)/100;
+      let scale = 1.5;
+      let mag = 15;
+      let x = Math.floor((event.clientX - (rectObject.left+target.offsetWidth*scale/2))/(target.offsetWidth*scale/2)*100)/100;
+      let y = Math.floor((event.clientY - (rectObject.top +target.offsetHeight*scale/2))/(target.offsetHeight*scale/2)*100)/100;
 
       target.style.transitionDuration = '0s';
-      target.style.transform = 'scale(1.5, 1.5) rotateY('+ x*15 +'deg) rotateX('+ (-y*15) +'deg) rotateZ('+ x*5 +'deg)';
+      target.style.transform = `scale(${scale}) rotateY(${x*mag}deg) rotateX(${-y*mag}deg) rotateZ(${x*mag/3}deg)`;
       target.style.zIndex='100';
     }
   }
@@ -70,8 +71,8 @@ class Song extends Component {
   
   resetPosition =(t) => {
     t.style.transitionDuration = '0.5s';
-    t.style.transform = 'scale(1, 1) rotateY(0deg) rotateX(0deg) rotateZ(0deg)';
-    t.style.zIndex='-1';
+    t.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg) rotateZ(0deg)';
+    t.style.zIndex='1';
   }
 
   render() {
